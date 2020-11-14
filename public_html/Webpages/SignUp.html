@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <title>Sign Up </title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width ,initial-scale=1.0"/>
+        <meta name="author" content="Krishnan S "/>
+        <style>
+            .left{
+                float:left;
+            }
+            input [type="password"]
+            {
+                float:none;
+                width: 50%;
+                margin-right:100%;
+                text-align :center;
+            }
+            fieldset{
+              margin-left:5%;
+            }
+           
+            body,form,span,datalist,input{
+                font-family:'Open Sans', sans-serif;
+                font-size:16px;
+            }
+            html{
+                margin: 0;
+                padding:0;
+                width: 100%;
+            }
+            form,body{
+                margin-left:auto;
+                margin-right:auto;
+                max-width: 1000px;
+            }
+            span{
+                display: block;
+                margin: 5px 0;
+                overflow: auto;
+                padding:0 1%;
+                width: 98%;
+            }
+            .related{
+                width: 50%;
+                float: left;
+                overflow: auto;
+                
+            }
+            .related1{
+               width: 50%;
+               float: right;
+               overflow: auto; 
+            }
+            input,select{
+                /*float:right;*/
+                width:50%;
+                padding: 12px 20px;
+                margin: 8px 10px;
+                box-sizing: border-box;
+                border-radius:4px;
+                background-color:#3CBC8D;
+                color:white;
+                display: block ;    
+            }
+             input[type="submit"]
+             {
+                 width:12%;
+                 margin:3% 20% 10% 20%;
+                 border-radius:4px;
+                 background-color:rgb(18,128,188);
+                 color:white;
+                 float:left;
+             }
+             input[type="reset"]
+             {
+                 width:12%;
+                 margin:3% 20% 10% 0%;
+                 border-radius:4px;
+                background-color:rgb(18,128,188);
+                 color:white;
+                 float:right;
+             }
+             .header{
+                overflow:hidden;
+                background-color:#f1f1f1;
+                padding:20px 10px;
+            }
+            .header a{
+                float:left;
+                color:black;
+                text-align:center;
+                padding:12px;
+                text-decoration:none;
+                font-size:18px;
+                line-height:25px;
+                border-radius:4px;
+            }
+            .header a.logo{
+                font-size:25px;
+                font-weight:bold;
+            }
+            .header a:hover{
+                background-color:#ddd;
+                color:black;
+            }
+            .header a.active{
+                background-color:dodgerblue;
+                color:white;
+            }
+            .header-right{
+                float:right;
+            }
+            @media screen and(max-width:500px)
+            {
+                .header a{
+                    float:none;
+                    display:block;
+                    text-align:left;
+                }
+                .header-right{
+                    float:none;
+                }
+            }
+
+            
+        </style>
+    </head>
+    <body>
+    <script>  
+       function validate()
+       {
+           var pass=document.getElementById("Password").value;
+           var cpass=document.getElementById("ConfirmPassword").value;
+           if(pass===""|| cpass==="")
+           {
+               window.alert("Your password field is empty");
+           }
+           if(pass!==cpass)
+           {
+              document.getElementById("error").innerHTML="<h4>The password and confirm password are not matching</h4>";
+               return false;
+           }
+           else
+           {
+               location.href="../SignIn.html";
+               return true;
+           }
+       }
+    </script>
+        <div class="header">
+            <a href="#default" class="logo">BOOK ADDICTS</a>
+            <div class="header-right">
+                <a href="../SignIn.html">Sign In</a>
+                <a href="mailto:skrishnan2001@gmail.com?subject=Having a problem in signing up"> Queries</a>
+            </div>
+        </div>
+        <h1 style="text-align:center;color:red ;background-color:yellow"><strong><em>Welcome to the world of reading!!</em></strong></h1>
+        <br>
+        <form autocomplete="off"  action="AccountCreated.php" onsubmit="return validate()===true" method="post">
+           
+            <h2 style="text-align:center"><strong>Fill up the details to create an account</strong></h2>
+            <fieldset>
+                
+                
+                <br>
+                <div class="related">
+                    <span>
+                        <label for="Firstname">First name(required)</label>
+                        <input type="text" placeholder="First name " id="Firstname" name="firstname" required/>
+                    </span>
+                     
+                    <span>
+                
+                        <label for="Lastname">Last name(required)</label>
+                        <input type="text" placeholder="Last name " id="Lastname" name="lastname" required/>
+                    </span>
+                    
+                    <span>
+                
+                        <label for="Email" >Email(required)</label>
+                        <input type="email" placeholder="Email " id="Email" name="userid" required/>
+                    </span> 
+                    <span>
+                
+                        <label for="Phone">Mobile No.(required) </label>
+                        <input type="tel" pattern="[0-9]{5}[0-9]{5}" size="10" maxlength="10" id="Phone" name="phone" placeholder="+91- "  required/>
+                    </span>                
+                   
+                    
+                    
+                </div>
+            <div class="related1" >
+                <span>
+                
+                    <label for="Address" >Address-Door number,building,street </label>
+                    <input type="text" id="Address"/>
+                </span> 
+                <span>
+                    <label for="Address" >Address-locality,district </label>
+                    <input type="text" />
+                </span> 
+                <span>
+                    <label for="pin">Pin code</label>
+                    <input type="tel" pattern="[0-9]{6}" size="6" maxlength="6" id="pin" placeholder="PIN CODE "/>
+                </span>
+                <span>City:
+                    <input list="City" name="DL1"/>
+                    <datalist id="City"> 
+                        <option value="Chennai">Chennai</option>
+                        <option value="Mumbai">Mumbai</option>
+                        <option value="Kolkata">Kolkata</option>
+                        <option value="New Delhi">New Delhi</option>
+                        <option value="Bangalore">Bangalore</option>
+                        <option value="Surat">Surat</option>
+                        <option value="Jaipur">Jaipur</option>
+                    </datalist>
+                </span>
+                    <span>State:
+                         <input list="State" name="DL1"/>
+                    <datalist id="State">
+                        <option value="Tamil Nadu">Tamil Nadu</option>
+                        <option value="Maharashtra">Maharashtra</option>
+                        <option value="West Bengal">West Bengal</option>
+                        <option value="Delhi">Delhi</option>
+                        <option value="Karnataka">Karnataka</option>
+                        <option value="Gujarat">Gujarat</option>
+                        <option value="Rajasthan">Rajasthan</option>
+                    </datalist>
+                       
+                    </span> 
+                
+                    <span style="text-align:justify">
+                    Password 
+                    <input type="password" id="Password" name="pwd" placeholder="********" required/>
+                </span>
+                <span style="text-align:justify">
+                    Confirm Password
+                    <input type="password" id="ConfirmPassword" name="cpwd" placeholder="********" required/>
+                </span>
+                <p style="color:red;width:50%;text-align:center" id="error"></p>
+                <br>
+                <br>
+            </div>
+             </fieldset>
+            <br>
+           <input type="submit" name="submit" value="submit" />
+            <input type="reset" name="reset"/>   
+        </form>
+    </body>
+</html>
